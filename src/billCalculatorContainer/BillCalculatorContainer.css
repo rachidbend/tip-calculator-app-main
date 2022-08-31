@@ -1,6 +1,15 @@
 .bill-calculator {
-  max-width: 1000px;
+  max-width: 912px;
   margin: 0 auto;
   background-color: #fff;
   border-radius: 24px;
+  margin-top: 150px;
+  height: 400px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.results {
+  background-color: hsl(183, 100%, 15%);
 }
