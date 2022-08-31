@@ -1,4 +1,19 @@
 .container {
-  background-color: brown;
-  color: aqua;
+  margin-top: 150px;
+  text-align: center;
+}
+
+.container--text {
+  font-family: 'Space Mono', monospace;
+}
+
+.heading {
+  font-family: 'Space Mono', monospace;
+}
+
+.heading--primary {
+  color: hsl(183, 100%, 15%);
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  font-size: 26px;
 }
