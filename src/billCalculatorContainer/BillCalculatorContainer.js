@@ -6,20 +6,30 @@ import { Results } from '../components/Results';
 export const BillCalculatorContainer = props => {
   const [bill, setBill] = useState(0);
   const [tipPercentage, setTipPercentage] = useState(0);
-  const [numberOfPeople, setNumberOfPeople] = useState(1);
+  const [numberOfPeople, setNumberOfPeople] = useState(0);
   const [tip, setTip] = useState(0);
   const [total, setTotal] = useState(0);
   const [shouldReset, setShouldReset] = useState(false);
 
   const calcTipAndTotal = () => {
-    const tipAmount = (bill / 100) * tipPercentage;
-    // console.log(`tip amount ${tipAmount}`);
-    const totalAmount = bill + tipAmount;
-    // console.log(`total amount ${totalAmount}`);
-    const tipPerPerson = tipAmount / numberOfPeople;
-    const totalPerPerson = totalAmount / numberOfPeople;
+    let tipAmount = (bill / 100) * tipPercentage;
+    let totalAmount = bill + tipAmount;
+    let tipPerPerson = (tipAmount / numberOfPeople).toFixed(2);
+    let totalPerPerson = (totalAmount / numberOfPeople).toFixed(2);
+
+    if (isNaN(tipPerPerson) || !isFinite(tipPerPerson)) {
+      tipPerPerson = 0;
+    }
+    if (isNaN(totalPerPerson) || !isFinite(totalPerPerson)) {
+      totalPerPerson = 0;
+    }
     setTip(tipPerPerson);
     setTotal(totalPerPerson);
+    // console.log(`tip amount: ${tipAmount}`);
+    // console.log(`tip amount per person: ${tipPerPerson}`);
+    // console.log(`total amount: ${totalAmount}`);
+    // console.log(`total amount per person: ${totalPerPerson}`);
+    // console.log('-----------------------------');
   };
 
   const handleBill = value => {

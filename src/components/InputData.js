@@ -54,8 +54,9 @@ export const InputData = props => {
           type="number"
           name="bill"
           id="bill"
-          value={props.bill}
+          value={props.bill === 0 ? '' : props.bill}
           onChange={handleBill}
+          placeholder={'0'}
         />
       </div>
       <div>
@@ -122,7 +123,8 @@ export const InputData = props => {
           name="numberOfPeople"
           id="people"
           onChange={props.handleNumOfPeople}
-          value={props.numberOfPeople}
+          value={props.numberOfPeople === 0 ? '' : props.numberOfPeople}
+          placeholder={'0'}
         />
       </div>
     </div>
