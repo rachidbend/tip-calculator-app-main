@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './BillCalculatorContainer.css';
-import { InputData } from '../components/InputData';
+import { InputDataContainer } from './InputDataContainer';
 import { ResultsContainer } from './ResultsContainer';
 
-export const BillCalculatorContainer = props => {
+export const BillCalculatorContainer = () => {
   const [bill, setBill] = useState(0);
   const [tipPercentage, setTipPercentage] = useState(0);
   const [numberOfPeople, setNumberOfPeople] = useState(0);
@@ -18,18 +18,13 @@ export const BillCalculatorContainer = props => {
     let totalPerPerson = (totalAmount / numberOfPeople).toFixed(2);
 
     if (isNaN(tipPerPerson) || !isFinite(tipPerPerson)) {
-      tipPerPerson = 0;
+      tipPerPerson = (0).toFixed(2);
     }
     if (isNaN(totalPerPerson) || !isFinite(totalPerPerson)) {
-      totalPerPerson = 0;
+      totalPerPerson = (0).toFixed(2);
     }
     setTip(tipPerPerson);
     setTotal(totalPerPerson);
-    // console.log(`tip amount: ${tipAmount}`);
-    // console.log(`tip amount per person: ${tipPerPerson}`);
-    // console.log(`total amount: ${totalAmount}`);
-    // console.log(`total amount per person: ${totalPerPerson}`);
-    // console.log('-----------------------------');
   };
 
   const handleBill = value => {
@@ -37,29 +32,21 @@ export const BillCalculatorContainer = props => {
   };
 
   const handleCheckBox = ({ target }) => {
-    if (target.checked) {
-      setTipPercentage(+target.value);
-      // console.log(target, `is checked`, target.value);
-    }
-    if (!target.checked) {
-      // console.log(target, `is not checked`, target.value);
-      return;
-    }
+    // if the box is checked the set the tip percentage as that value
+    if (target.checked) setTipPercentage(+target.value);
   };
 
   const handleCustomTip = ({ target }) => {
     setTipPercentage(+target.value);
   };
 
-  const handleReset = resetIsClicked => {
-    if (resetIsClicked) {
-      setBill(0);
-      setTipPercentage(0);
-      setNumberOfPeople(0);
-      setTip(0);
-      setTotal(0);
-      setShouldReset(true);
-    } else return;
+  const handleReset = () => {
+    setBill(0);
+    setTipPercentage(0);
+    setNumberOfPeople(0);
+    setTip(0);
+    setTotal(0);
+    setShouldReset(true);
   };
 
   const handleNumOfPeople = ({ target }) => {
@@ -80,10 +67,9 @@ export const BillCalculatorContainer = props => {
 
   return (
     <div className="bill-calculator">
-      <InputData
+      <InputDataContainer
         bill={bill}
         handleCheckBox={handleCheckBox}
-        onChange={calcTipAndTotal}
         handleBill={handleBill}
         shouldReset={shouldReset}
         handleNumOfPeople={handleNumOfPeople}

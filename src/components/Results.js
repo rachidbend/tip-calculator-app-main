@@ -1,5 +1,6 @@
 import React from 'react';
 
+// this is a controlled component that only displays some results and tells if the reset button is clicked
 export const Results = props => {
   return (
     <div className="results">

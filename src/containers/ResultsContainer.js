@@ -2,8 +2,11 @@ import React from 'react';
 import { Results } from '../components/Results';
 
 export const ResultsContainer = props => {
+  // if the reset button is clicked then tell the parent element to reset everything
   const handleClick = () => {
-    props.onClick(true);
+    // Get parent to reset everything
+
+    props.onClick();
   };
 
   return <Results tip={props.tip} total={props.total} onClick={handleClick} />;

@@ -1,52 +1,15 @@
 import React from 'react';
 
 export const InputData = props => {
-  const checkBoxes = document.querySelectorAll('.tip-input');
-  const customTip = document.getElementById('custom-tip');
+  // all values and handlers from props
+  const bill = props.bill;
+  const handleBill = props.handleBill;
+  const handleCheckBox = props.handleCheckBox;
+  const handleCustomTip = props.handleCustomTip;
+  const numberOfPeople = props.numberOfPeople;
+  const handleNumOfPeople = props.handleNumOfPeople;
 
-  const handleBill = ({ target }) => {
-    const value = target.value;
-    props.handleBill(value);
-    props.onChange();
-  };
-
-  if (props.shouldReset) {
-    checkBoxes.forEach(checkBox => {
-      checkBox.checked = false;
-    });
-
-    customTip.value = '';
-  }
-
-  const handleCheckBox = event => {
-    props.handleCheckBox(event);
-    customTip.value = '';
-    const target = event.target;
-    checkBoxes.forEach(checkBox => {
-      if (checkBox !== target) {
-        checkBox.checked = false;
-      }
-    });
-  };
-
-  const handleCustomTip = event => {
-    const custom = event.target.value;
-    console.log(custom);
-    if (custom !== '') {
-      checkBoxes.forEach(checkBox => {
-        checkBox.checked = false;
-      });
-      props.handleCustomTip(event);
-    }
-  };
-
-  // if (!customInput.value) {
-  //   const checkBoxes = document.querySelectorAll('.tip-input');
-  //   checkBoxes.forEach(checkBox => {
-  //     checkBox.checked = false;
-  //   });
-  // }
-
+  // what this component should render
   return (
     <div className="input-data">
       <div>
@@ -55,7 +18,7 @@ export const InputData = props => {
           type="number"
           name="bill"
           id="bill"
-          value={props.bill === 0 ? '' : props.bill}
+          value={bill}
           onChange={handleBill}
           placeholder={'0'}
         />
@@ -123,8 +86,8 @@ export const InputData = props => {
           type="number"
           name="numberOfPeople"
           id="people"
-          onChange={props.handleNumOfPeople}
-          value={props.numberOfPeople === 0 ? '' : props.numberOfPeople}
+          onChange={handleNumOfPeople}
+          value={numberOfPeople}
           placeholder={'0'}
         />
       </div>
