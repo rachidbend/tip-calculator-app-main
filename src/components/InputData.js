@@ -17,6 +17,8 @@ export const InputData = props => {
   const handleCheckBox = event => {
     props.handleCheckBox(event);
     const checkBoxes = document.querySelectorAll('.tip-input');
+    const customTip = document.getElementById('custom-tip');
+    customTip.value = '';
     const target = event.target;
     checkBoxes.forEach(checkBox => {
       if (checkBox !== target) {
@@ -28,11 +30,13 @@ export const InputData = props => {
   const handleCustomTip = event => {
     const custom = event.target.value;
     console.log(custom);
-    const checkBoxes = document.querySelectorAll('.tip-input');
-    checkBoxes.forEach(checkBox => {
-      checkBox.checked = false;
-    });
-    props.handleCustomTip(event);
+    if (custom !== '') {
+      const checkBoxes = document.querySelectorAll('.tip-input');
+      checkBoxes.forEach(checkBox => {
+        checkBox.checked = false;
+      });
+      props.handleCustomTip(event);
+    }
   };
 
   // if (!customInput.value) {
