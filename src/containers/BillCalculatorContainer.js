@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './BillCalculatorContainer.css';
 import { InputData } from '../components/InputData';
-import { Results } from '../components/Results';
+import { ResultsContainer } from './ResultsContainer';
 
 export const BillCalculatorContainer = props => {
   const [bill, setBill] = useState(0);
@@ -90,7 +90,7 @@ export const BillCalculatorContainer = props => {
         numberOfPeople={numberOfPeople}
         handleCustomTip={handleCustomTip}
       />
-      <Results onClick={handleReset} tip={tip} total={total} />
+      <ResultsContainer onClick={handleReset} tip={tip} total={total} />
     </div>
   );
 };

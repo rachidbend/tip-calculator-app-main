@@ -1,6 +1,9 @@
 import React from 'react';
 
 export const InputData = props => {
+  const checkBoxes = document.querySelectorAll('.tip-input');
+  const customTip = document.getElementById('custom-tip');
+
   const handleBill = ({ target }) => {
     const value = target.value;
     props.handleBill(value);
@@ -8,16 +11,15 @@ export const InputData = props => {
   };
 
   if (props.shouldReset) {
-    const checkBoxes = document.querySelectorAll('.tip-input');
     checkBoxes.forEach(checkBox => {
       checkBox.checked = false;
     });
+
+    customTip.value = '';
   }
 
   const handleCheckBox = event => {
     props.handleCheckBox(event);
-    const checkBoxes = document.querySelectorAll('.tip-input');
-    const customTip = document.getElementById('custom-tip');
     customTip.value = '';
     const target = event.target;
     checkBoxes.forEach(checkBox => {
@@ -31,7 +33,6 @@ export const InputData = props => {
     const custom = event.target.value;
     console.log(custom);
     if (custom !== '') {
-      const checkBoxes = document.querySelectorAll('.tip-input');
       checkBoxes.forEach(checkBox => {
         checkBox.checked = false;
       });

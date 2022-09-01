@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Title } from './Title';
-import { BillCalculatorContainer } from './billCalculatorContainer/BillCalculatorContainer';
+import { BillCalculatorContainer } from './containers/BillCalculatorContainer';
 
 function App() {
   return (
