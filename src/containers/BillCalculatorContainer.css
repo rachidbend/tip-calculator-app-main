@@ -4,7 +4,8 @@
   background-color: #fff;
   border-radius: 24px;
   margin-top: 150px;
-  height: 400px;
+  min-height: 400px;
+  padding: 34px;
 
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -12,4 +13,14 @@
 
 .results {
   background-color: hsl(183, 100%, 15%);
+  border-radius: 24px;
+}
+
+@media (max-width: 700px) {
+  .bill-calculator {
+    max-width: 600px;
+
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 }

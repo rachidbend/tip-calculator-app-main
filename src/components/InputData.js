@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const InputData = props => {
   // all values and handlers from props
@@ -93,4 +94,13 @@ export const InputData = props => {
       </div>
     </div>
   );
+};
+
+InputData.prototypes = {
+  bill: PropTypes.number.isRequired,
+  handleBill: PropTypes.func.isRequired,
+  handleCheckBox: PropTypes.func.isRequired,
+  handleCustomTip: PropTypes.func.isRequired,
+  numberOfPeople: PropTypes.number.isRequired,
+  handleNumOfPeople: PropTypes.func.isRequired,
 };

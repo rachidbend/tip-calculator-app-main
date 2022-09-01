@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { InputData } from '../components/InputData';
 
 export const InputDataContainer = props => {
@@ -68,4 +69,10 @@ export const InputDataContainer = props => {
       handleNumOfPeople={handleNumOfPeople}
     />
   );
+};
+
+InputDataContainer.prototypes = {
+  bill: PropTypes.number.isRequired,
+  numberOfPeople: PropTypes.number.isRequired,
+  handleNumOfPeople: PropTypes.func.isRequired,
 };
