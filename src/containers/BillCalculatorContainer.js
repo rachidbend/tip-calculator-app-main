@@ -44,8 +44,8 @@ export const BillCalculatorContainer = () => {
     setBill(0);
     setTipPercentage(0);
     setNumberOfPeople(0);
-    setTip(0);
-    setTotal(0);
+    setTip((0).toFixed(2));
+    setTotal((0).toFixed(2));
     setShouldReset(true);
   };
 

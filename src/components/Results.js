@@ -5,9 +5,29 @@ import PropTypes from 'prop-types';
 export const Results = props => {
   return (
     <div className="results">
-      <div>tip amount: {props.tip} </div>
-      <div>total: {props.total} </div>
-      <button onClick={props.onClick}>reset</button>
+      <div>
+        <div className="results__section">
+          <div>
+            <h3 className="results__title">Tip Amount</h3>
+            <p className="results__per-person">/ person</p>
+          </div>
+          <div>
+            <p className="results__number">${props.tip}</p>
+          </div>
+        </div>
+        <div className="results__section">
+          <div>
+            <h3 className="results__title">Total</h3>
+            <p className="results__per-person">/ person</p>
+          </div>
+          <div>
+            <p className="results__number">${props.total}</p>
+          </div>
+        </div>
+      </div>
+      <button className="btn btn--reset" onClick={props.onClick}>
+        reset
+      </button>
     </div>
   );
 };

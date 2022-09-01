@@ -1,5 +1,5 @@
 .container {
-  margin-top: 150px;
+  margin-top: 153px;
   text-align: center;
 }
 
@@ -13,9 +13,13 @@
 
 .heading--primary {
   color: hsl(183, 100%, 15%);
+  opacity: 0.8;
   text-transform: uppercase;
-  letter-spacing: 8px;
-  font-size: 26px;
+  letter-spacing: 10px;
+  font-size: 24.5px;
+  line-height: 1.5;
+  padding-left: 10px;
+  /* transform: scale(0.99); */
 }
 
 .input-data div {
