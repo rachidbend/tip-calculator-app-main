@@ -3,9 +3,9 @@
   margin: 0 auto;
   background-color: #fff;
   border-radius: 24px;
-  margin-top: 78px;
-  min-height: 400px;
-  padding: 31px;
+  margin-top: 83px;
+  /* min-height: 400px; */
+  padding: 32px;
 
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -16,7 +16,12 @@
   background-color: hsl(183, 100%, 15%);
   border-radius: 16px;
   padding: 44px 40px;
+  padding-bottom: 41px;
+  padding-right: 41px;
   font-family: 'Space Mono', monospace;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 @media (max-width: 700px) {
@@ -60,10 +65,10 @@
 
 .btn--reset {
   display: block;
-  background-color: hsla(172, 67%, 45%, 1);
-  color: hsla(183, 100%, 15%, 1);
+  background-color: hsl(183, 79%, 24%);
+  color: hsl(184, 92%, 20%);
   opacity: 1;
-  padding: 8px 0;
+  padding: 10px 0;
   border-radius: 3px;
   width: 100%;
   font-size: 20px;
@@ -79,6 +84,9 @@
 
 .input-data {
   text-align: left;
+  padding: 16px;
+  padding-right: 18px;
+  padding-top: 13px;
 }
 
 .input-data h3 {
@@ -86,22 +94,20 @@
   font-size: 16px;
   font-family: 'Space Mono', monospace;
   color: hsl(186, 14%, 43%);
-}
-
-.input-data {
-  margin-bottom: 40px;
+  margin-bottom: 6px;
 }
 
 .tip-form {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+  /* gap: 14px; */
+  column-gap: 14px;
+  row-gap: 16px;
 }
 
 .tip-form div {
-  /* background-color: red; */
   position: relative;
-  height: 40px;
+  height: 48px;
   border-radius: 6px;
   overflow: hidden;
 }
@@ -140,7 +146,8 @@
 input:checked ~ .checkmark {
   background-color: hsl(172, 67%, 45%);
 }
-input:checked ~ .tip-form label {
+
+input:checked ~ label {
   color: hsl(183, 100%, 15%);
 }
 
@@ -148,7 +155,7 @@ input:checked ~ .tip-form label {
   font-family: 'Space Mono', monospace;
   opacity: 1;
   color: hsl(183, 100%, 15%);
-  background-color: hsl(185, 41%, 84%);
+  background-color: hsl(189, 41%, 97%);
   border: none;
   max-width: 100%;
   min-width: 0;
@@ -156,23 +163,30 @@ input:checked ~ .tip-form label {
   padding: 10px;
   font-size: 24px;
   border-radius: 6px;
-  height: 40px;
+  height: 48px;
+  caret-color: hsl(172, 67%, 45%);
+  outline-color: hsl(172, 67%, 45%);
+  padding-left: 14px;
 }
 
 #custom-tip::placeholder {
-  font-size: 20px;
+  font-size: 24px;
   text-transform: capitalize;
   text-align: left;
+  color: hsl(186, 14%, 43%);
 }
 
 .input-data__section {
-  margin-bottom: 60px;
+  margin-bottom: 40px;
+}
+.input-data__section:last-child {
+  margin-bottom: 0px;
 }
 
 #bill {
   display: block;
   width: 100%;
-  height: 40px;
+  height: 48px;
   background-color: hsl(189, 41%, 97%);
   border: none;
 
@@ -181,16 +195,23 @@ input:checked ~ .tip-form label {
   color: hsl(183, 100%, 15%);
   text-align: right;
   font-family: 'Space Mono', monospace;
-  padding: 6px 12px;
+  padding: 5px 17px;
+  caret-color: hsl(172, 67%, 45%);
+  outline-color: hsl(172, 67%, 45%);
+  outline-offset: -1px;
 }
 #bill::placeholder {
   font-size: 24px;
   color: hsl(184, 14%, 56%);
 }
+#bill:active {
+  border-color: hsl(172, 67%, 45%);
+}
+
 #people {
   display: block;
   width: 100%;
-  height: 40px;
+  height: 48px;
   background-color: hsl(189, 41%, 97%);
   border: none;
 
@@ -199,9 +220,50 @@ input:checked ~ .tip-form label {
   color: hsl(183, 100%, 15%);
   text-align: right;
   font-family: 'Space Mono', monospace;
-  padding: 6px;
+  padding: 5px 17px;
+  caret-color: hsl(172, 67%, 45%);
+  outline-color: hsl(172, 67%, 45%);
 }
 #people::placeholder {
   font-size: 24px;
   color: hsl(184, 14%, 56%);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.input-data .heading--tip {
+  margin-bottom: 16px;
+}
+
+.people--container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.heading--people {
+  display: inline;
+}
+.zero-warning {
+  display: inline;
+  font-family: 'Space Mono', monospace;
+  color: #b47d6e;
+  opacity: 0;
+}
+
+.input-data__section--people--empty .zero-warning {
+  opacity: 1;
+}
+
+.input-data__section--people--empty #people {
+  outline-color: #b47d6e;
 }
