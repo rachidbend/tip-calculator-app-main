@@ -25,12 +25,6 @@ export const InputData = props => {
     console.log(bill, numberOfPeople);
   });
 
-  useEffect(() => {
-    // bill = bill === 0 ? '' : bill;
-    // numberOfPeople = numberOfPeople === 0 ? '' : numberOfPeople;
-    console.log(bill, numberOfPeople);
-  }, []);
-
   // what this component should render
   return (
     <div className="input-data">
