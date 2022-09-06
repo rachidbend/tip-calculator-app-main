@@ -3,16 +3,17 @@ import PropTypes from 'prop-types';
 
 export const InputData = props => {
   // all values and handlers from props
-  const bill = props.bill;
+  let bill = props.bill;
   const handleBill = props.handleBill;
   const handleCheckBox = props.handleCheckBox;
   const handleCustomTip = props.handleCustomTip;
-  const numberOfPeople = props.numberOfPeople;
+  let numberOfPeople = props.numberOfPeople;
   const handleNumOfPeople = props.handleNumOfPeople;
 
   useEffect(() => {
-    console.log(numberOfPeople);
-    if (numberOfPeople === 0 || numberOfPeople === '') {
+    // console.log(numberOfPeople);
+    // if (numberOfPeople === 0 || numberOfPeople === '')
+    if (numberOfPeople === 0) {
       document
         .querySelector('.input-data__section--people')
         .classList.add('input-data__section--people--empty');
@@ -21,7 +22,14 @@ export const InputData = props => {
         .querySelector('.input-data__section--people')
         .classList.remove('input-data__section--people--empty');
     }
+    console.log(bill, numberOfPeople);
   });
+
+  useEffect(() => {
+    // bill = bill === 0 ? '' : bill;
+    // numberOfPeople = numberOfPeople === 0 ? '' : numberOfPeople;
+    console.log(bill, numberOfPeople);
+  }, []);
 
   // what this component should render
   return (

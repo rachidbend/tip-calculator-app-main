@@ -4,8 +4,10 @@ import { InputData } from '../components/InputData';
 
 export const InputDataContainer = props => {
   // Props
-  const bill = props.bill === 0 ? '' : props.bill;
-  const numberOfPeople = props.numberOfPeople === 0 ? '' : props.numberOfPeople;
+  // const bill = props.bill === 0 ? '' : props.bill;
+  // const numberOfPeople = props.numberOfPeople === 0 ? '' : props.numberOfPeople;
+  const bill = props.bill;
+  const numberOfPeople = props.numberOfPeople;
   const handleNumOfPeople = props.handleNumOfPeople;
 
   // Elements
