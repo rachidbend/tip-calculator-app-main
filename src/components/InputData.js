@@ -11,8 +11,6 @@ export const InputData = props => {
   const handleNumOfPeople = props.handleNumOfPeople;
 
   useEffect(() => {
-    // console.log(numberOfPeople);
-    // if (numberOfPeople === 0 || numberOfPeople === '')
     if (numberOfPeople === 0) {
       document
         .querySelector('.input-data__section--people')
